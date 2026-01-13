@@ -1,6 +1,3 @@
-<script async tr-color-vars="vf-background-titlebar" duration="0.5" ease="power1.out" src="https://cdn.jsdelivr.net/gh/flowtricks/scripts@v1.0.4/dark-mode-toggle.js"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
 <script type="text/javascript">
 (function(d, t) {
 	var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
