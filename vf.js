@@ -24,10 +24,14 @@
 			},
 			inputPlaceholder: 'Dive deeper with webqem ai'
 		}).then(() => {
+			const vfrcH = document.querySelector('.vfrc-header');
+			const vfrcF = document.querySelector('.vfrc-footer');
+			if (vfrcH) vfrcH.classList.add('d-none');
+			if (vfrcF) vfrcF.classList.add('d-none');
 			let lastSubject = null;
 			function pushEvent(subj) {
-  			if (!subj || subj === lastSubject) return;
-  			lastSubject = subj;
+  				if (!subj || subj === lastSubject) return;
+  				lastSubject = subj;
 				window.voiceflow.chat.interact({
 					type: 'event',
 					payload: {
