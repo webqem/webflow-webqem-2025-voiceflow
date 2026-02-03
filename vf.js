@@ -10,46 +10,21 @@
 			versionID: 'production',
 			assistant: {
 				stylesheet: 'data:text/css;base64,LnZmcmMtY2hhdF9fY29udGFpbmVyLWlubmVyIHsKCS52ZnJjLWhlYWRlciB7CgkJYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQp9Ci52ZnJjLWZvb3Rlcl9fY29udGVudCBkaXY6aGFzKC52ZnJjLWlucHV0LWNvbnRhaW5lcikgewoJYWxpZ24taXRlbXM6Y2VudGVyOwp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciB7Cgl3aWR0aDoxMDAlOwoJQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA0ODBweCkgewoJCXdpZHRoOjUwJTsKCX0KCUBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogOTkycHgpIHsKCQl3aWR0aDozMyU7Cgl9Cn0KI3ZmcmMtc2VuZC1tZXNzYWdlIHsKCXBhZGRpbmc6MDsKCWJvcmRlci1yYWRpdXM6IDA7CgliYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50Owp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciwKLnZmcmMtY2hhdC1mb2N1cy1yaW5nIHsKCWJvcmRlci1yYWRpdXM6MTJweDsJCn0KLnZmcmMtcHJvbXB0IHsKCWZsZXgtZGlyZWN0aW9uOnJvdy1yZXZlcnNlOwoJLnZmcmMtYnV0dG9uIHsKCQl3aWR0aDo1MCU7Cgl9Cn0KLmRhcmstbW9kZSB7CgkudmZyYy1oZWFkZXIgewoJCWJhY2tncm91bmQtY29sb3I6IHZhcigtLWRhcmstLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQkKfQ==',
-				title: 'Title from code',
-				description: 'Description from code',
 				persistence: 'localStorage'
-			},
-			voice: {
-				url: 'https://runtime-api.voiceflow.com'
 			},
 			render: {
 				mode: 'embedded',
 				target: document.getElementById('vfchat')
 			},
-			// autostart: false,
 			header: {
 				hideImage: true,
-				title: 'This is the header title'
 			},
 			banner: {
 				hide: true,
-				title: 'Welcome!',
-				description: 'How can I help you today?',
-				imageUrl: 'https://yourdomain.com/banner.jpg'
-			},
-			avatar: {
-				hide: true,
-				imageUrl: 'https://yourdomain.com/avatar.png'
 			},
 			inputPlaceholder: 'Dive deeper with webqem ai'
 		}).then(() => {
 			let lastSubject = null;
-			// function pushIntent(subj) {
-  			// 	if (!subj || subj === lastSubject) return;
-  			// 	lastSubject = subj;
-			// 	window.voiceflow.chat.interact({
-			// 		type: 'intent',
-			// 		payload: {
-			// 			intent: { name: 'Page Subject' },
-			// 			entities: [window.location.pathname,subj]
-			// 		}
-			// 	});
-			// }
 			function pushEvent(subj) {
   			if (!subj || subj === lastSubject) return;
   			lastSubject = subj;
@@ -80,34 +55,12 @@
 					if (entry.isIntersecting) {
 						const subjectValue = entry.target.getAttribute('data-wqai-subject');
 						pushEvent(`${subjectValue}`);
-						// console.log(`Subject in view: ${subjectValue}`);
 					}
 				});
 			});
 			wqaiel.forEach((element) => {
 				wqaiobs.observe(element);
 			});
-			
-			/*
-			const vfchatnode = document.querySelector('#vfchat').shadowRoot;
-			const promptGrpDiv = vfchatnode.querySelector('.vfrc-footer__content div:has(.vfrc-input-container)');
-			const vfchatconfig = { childList: true, subtree: true };
-			const vfchatcallback = function(mutationsList, observer) {
-				for(const mutation of mutationsList) {
-					if (mutation.type === 'childList') {
-						mutation.addedNodes.forEach(node => {
-							// console.log('Node.', node);
-							if (node.nodeType === Node.ELEMENT_NODE && node.matches('.vfrc-chat--dialog .vfrc-system-response--actions')) {
-								// console.log('A specific element with class "vfrc-system-response--actions" was added!', node, promptGrpDiv);
-								// vfchatnode.querySelector('.vfrc-input-container').after(vfchatnode.querySelector('.vfrc-chat--dialog .vfrc-system-response--actions'));
-							}
-						});
-					}
-				}
-			};
-			const vfchatobs = new MutationObserver(vfchatcallback);
-			vfchatobs.observe(vfchatnode, vfchatconfig);
-			*/
 		});
 	}
 	v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs'; v.type = 'text/javascript'; s.parentNode.insertBefore(v, s);
