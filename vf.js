@@ -24,11 +24,6 @@
 			},
 			inputPlaceholder: 'Dive deeper with webqem ai'
 		}).then(() => {
-			const vfchatn = getVfChatRoot();
-			const vfrcH = vfchatn.querySelector('.vfrc-header');
-			const vfrcF = vfchatn.querySelector('.vfrc-footer');
-			if (vfrcH) vfrcH.classList.toggle('d-none');
-			if (vfrcF) vfrcF.classList.toggle('d-none');
 			let lastSubject = null;
 			function pushEvent(subj) {
   				if (!subj || subj === lastSubject) return;
@@ -47,6 +42,11 @@
 			window.addEventListener('message', (event) => {
 				const vfchatnode = getVfChatRoot();
 				if (!vfchatnode) return;
+
+				const vfrcH = vfchatnode.querySelector('.vfrc-header');
+				const vfrcF = vfchatnode.querySelector('.vfrc-footer');
+				if (vfrcH) vfchatnode.classList.toggle('d-none');
+				if (vfrcF) vfchatnode.classList.toggle('d-none');
 
 				const send = vfchatnode.querySelector('#vfrc-send-message');
 				if (!send) return;
