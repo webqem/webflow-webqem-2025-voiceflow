@@ -9,7 +9,7 @@
 			url: 'https://general-runtime.voiceflow.com',
 			versionID: 'production',
 			assistant: {
-				stylesheet: 'data:text/css;base64,LnZmcmMtY2hhdF9fY29udGFpbmVyLWlubmVyIHsKCS52ZnJjLWhlYWRlciB7CgkJYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQp9Ci52ZnJjLWZvb3Rlcl9fY29udGVudCBkaXY6aGFzKC52ZnJjLWlucHV0LWNvbnRhaW5lcikgewoJYWxpZ24taXRlbXM6Y2VudGVyOwp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciB7Cgl3aWR0aDoxMDAlOwoJQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA0ODBweCkgewoJCXdpZHRoOjUwJTsKCX0KCUBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogOTkycHgpIHsKCQl3aWR0aDozMyU7Cgl9Cn0KI3ZmcmMtc2VuZC1tZXNzYWdlIHsKCXBhZGRpbmc6MDsKCWJvcmRlci1yYWRpdXM6IDA7CgliYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50Owp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciwKLnZmcmMtY2hhdC1mb2N1cy1yaW5nIHsKCWJvcmRlci1yYWRpdXM6MTJweDsJCn0KLnZmcmMtcHJvbXB0IHsKCWZsZXgtZGlyZWN0aW9uOnJvdy1yZXZlcnNlOwoJLnZmcmMtYnV0dG9uIHsKCQl3aWR0aDo1MCU7Cgl9Cn0KLmRhcmstbW9kZSB7CgkudmZyYy1oZWFkZXIgewoJCWJhY2tncm91bmQtY29sb3I6IHZhcigtLWRhcmstLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQkKfQ==',
+				stylesheet: 'data:text/css;base64,LnZmcmMtY2hhdF9fY29udGFpbmVyLWlubmVyIHsKCS52ZnJjLWhlYWRlciB7CgkJYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQp9Ci52ZnJjLWZvb3Rlcl9fY29udGVudCBkaXY6aGFzKC52ZnJjLWlucHV0LWNvbnRhaW5lcikgewoJYWxpZ24taXRlbXM6Y2VudGVyOwp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciB7Cgl3aWR0aDoxMDAlOwoJQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA0ODBweCkgewoJCXdpZHRoOjUwJTsKCX0KCUBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aDogOTkycHgpIHsKCQl3aWR0aDozMyU7Cgl9Cn0KI3ZmcmMtc2VuZC1tZXNzYWdlIHsKCXBhZGRpbmc6MDsKCWJvcmRlci1yYWRpdXM6IDA7CgliYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50Owp9Ci52ZnJjLWlucHV0LWNvbnRhaW5lciwKLnZmcmMtY2hhdC1mb2N1cy1yaW5nIHsKCWJvcmRlci1yYWRpdXM6MTJweDsJCn0KLnZmcmMtcHJvbXB0IHsKCWZsZXgtZGlyZWN0aW9uOnJvdy1yZXZlcnNlOwoJLnZmcmMtYnV0dG9uIHsKCQl3aWR0aDo1MCU7Cgl9Cn0KLmRhcmstbW9kZSB7CgkudmZyYy1oZWFkZXIgewoJCWJhY2tncm91bmQtY29sb3I6IHZhcigtLWRhcmstLXZmLWJhY2tncm91bmQtdGl0bGViYXIpOwoJfQkKfQouZC1ub25lIHsKCWRpc3BsYXk6bm9uZTsKfQ==',
 				persistence: 'localStorage'
 			},
 			render: {
@@ -24,10 +24,11 @@
 			},
 			inputPlaceholder: 'Dive deeper with webqem ai'
 		}).then(() => {
-			const vfrcH = document.querySelector('.vfrc-header');
-			const vfrcF = document.querySelector('.vfrc-footer');
-			if (vfrcH) vfrcH.classList.add('d-none');
-			if (vfrcF) vfrcF.classList.add('d-none');
+			const vfchatn = getVfChatRoot();
+			const vfrcH = vfchatn.querySelector('.vfrc-header');
+			const vfrcF = vfchatn.querySelector('.vfrc-footer');
+			if (vfrcH) vfrcH.classList.toggle('d-none');
+			if (vfrcF) vfrcF.classList.toggle('d-none');
 			let lastSubject = null;
 			function pushEvent(subj) {
   				if (!subj || subj === lastSubject) return;
