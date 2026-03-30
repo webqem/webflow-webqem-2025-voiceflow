@@ -30,8 +30,8 @@
                     const vfrcF = vfSR.querySelector('.vfrc-footer');
                     if (vfrcH && vfrcF) {
                         console.log("Header and Footer are now loaded!");
-                        vfrcH.classList.toggle('d-none');
-                        vfrcF.classList.toggle('d-none');
+                        // vfrcH.classList.toggle('d-none');
+                        // vfrcF.classList.toggle('d-none');
                         obs.disconnect();
                     }
                 });
